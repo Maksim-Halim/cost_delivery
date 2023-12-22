@@ -45,23 +45,25 @@ class Delivery extends Controller
     public function calculation()
     {
 
-        $this->setWeight(1)->setVolume(10,10,10)->setCost(50);
+        $this->setWeight(8)->setVolume(20,20,20)->setCost(50);
 
         //Дальше у нас проверка того
-/*        if (($this->weight > $this->volume) && ($this->weight > $this->cost)) {
+        if (($this->weight >= $this->volume) && ($this->weight >= $this->cost)) {
+            echo "Стоимость доставки по весу ";
             return  round(($this->getWeight()),2);
         }
         elseif (($this->volume > $this->weight) && ($this->volume > $this->cost)){
+            echo "Стоимость доставки по объему ";
             return   round(($this->getVolume()),2);
 
         } elseif (($this->cost > $this->weight) && ($this->cost > $this->volume)){
-         return $this->getCost();
+            echo "Минимальная стоимость доставки ";
+            return $this->getCost();
         }
         else{
+            echo "Минимальная стоимость доставки ";
             return $this->getCost();
-        }*/
-        echo "Стоимость доставки ";
-        return max($this->getWeight(),$this->getVolume(),$this->getCost());
+        }
 
 
     }
